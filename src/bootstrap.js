@@ -16,9 +16,9 @@ function main() {
   ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
       <BrowserRouter>
-      <Switch>
-            <Route path='/' component={Home}/>
-            <Route path='/results' component={Results}/>
+        <Switch>
+          <Route path='/' exact component={Home}/>
+          <Route path='/results' component={Results}/>
         </Switch>
       </BrowserRouter>
     </Provider>,
