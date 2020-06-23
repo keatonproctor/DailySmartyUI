@@ -44,11 +44,14 @@ class Post extends Component {
                 <div className="post-link" key={index}>
                     <div className="post-link__box"></div>
                     <div className="post-link__link">
-                    <a href={post_link.link_url}>{this.getNameForPostLink(post_link.link_url)}</a>
+                        <a href={post_link.link_url}>{this.getNameForPostLink(post_link.link_url)}</a>
                     </div>
                 </div>
             )
         })
+        if(links == 0) {
+            return <div className="no-content">No Post Links</div>
+        }
         return links;
     }
 
@@ -57,7 +60,7 @@ class Post extends Component {
             return (
                 <li className="recent-post">
                     <div className="recent-post__title">
-                        {this.props.title}
+                        <a href={this.props.url_for_post}>{this.props.title}</a>
                     </div>
                     <div className="recent-post__topics">
                         {this.renderTopics()}
@@ -74,9 +77,9 @@ class Post extends Component {
                         {this.renderTopics()}
                     </div>
                     <div className="result-post__title">
-                    <a href={this.props.url_for_post}>
+                        <a href={this.props.url_for_post}>
                         {this.props.title}
-                    </a>
+                        </a>
                     </div>
                     <AnimateHeight
                         duration={500}
@@ -89,7 +92,8 @@ class Post extends Component {
                 </li>
             )
         }
+
     }
 }
 
-export default Post; 
+export default Post;

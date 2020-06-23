@@ -8,9 +8,11 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 class Results extends Component {
+
     handleSearchBarSubmit(query) {
         this.props.fetchPostsWithQuery(query);
     }
+
     render() {
         return (
             <div className="results">
